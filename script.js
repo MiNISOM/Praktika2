@@ -23,6 +23,9 @@ function addFilms() {
     movieDB.movies = movieDB.movies.sort()
 
     for (let i = 0; i < movieDB.movies.length; i++) {
+        // Я знаю что здесь можно было сделать чекрез шаблонную строку, 
+        // но потом не работает метод для удаления этих элементов
+
         const li = document.createElement('li');
         li.classList.add('promo__interactive-item');
         li.innerHTML = `${i+1}) ${movieDB.movies[i].toUpperCase()}
@@ -58,47 +61,56 @@ const movieDB = {
 };
 
 
-const add = document.querySelector('.promo__adv');
-add.style.display = 'none'
-const genre = document.querySelector('.promo .promo__genre')
-genre.innerHTML = 'ДРАМА'
-const bg = document.querySelector('.promo__bg')
-bg.style.backgroundImage = 'url("img/bg.jpg")'
+const add = document.querySelector('.promo__adv'),
+    genre = document.querySelector('.promo .promo__genre'),
+    bg = document.querySelector('.promo__bg'),
+    movieList = document.getElementById('movieList'),
+    button = document.querySelector('form.add button'),
+    form = document.querySelector('form.add');
+
+add.style.display = 'none';
+genre.innerHTML = 'ДРАМА';
+bg.style.backgroundImage = 'url("img/bg.jpg")';
 
 
-const movieList = document.getElementById('movieList');
+addFilms();
 
-addFilms()
+form.submit = (event) => {
+    // Something
+}
 
-const button = document.querySelector('form.add button')
 button.addEventListener('click', (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    let input = document.querySelector('.adding__input')
-    let str = input.value
-    if(str == '')
-        return
+    let input = document.querySelector('.adding__input');
+    let str = input.value;
+    if(!str)
+        return;
 
-    str = str.length > 21 ? str.slice(0, 21) + '...' : str
+    str = str.length > 21 ? str.slice(0, 21) + '...' : str;
 
-    if(document.querySelector('form.add input.checkbox').checked) 
+    const checkbox = document.querySelector('form.add input.checkbox');
+    if(checkbox.checked) 
         console.log('Добавляем в издранное...');
 
-    deleteFilms()
-    movieDB.movies.push(str)
-    addFilms()
+    deleteFilms();
+    movieDB.movies.push(str);
+    addFilms();
 
-    addEventOnFilms()
+    addEventOnFilms();
+
+    form.reset();
+    form.submit(event);
 })
 
 function addEventOnFilms() {
-    let deleteButs = document.querySelectorAll('.promo__interactive-list .delete')
+    let deleteButs = document.querySelectorAll('.promo__interactive-list .delete');
     deleteButs.forEach(el => {
         el.addEventListener('click', () => {
-            deleteFilm(el.parentElement.textContent.slice(3, el.parentElement.textContent.length).trim())
-            deleteFilms()
-            addFilms()
-            addEventOnFilms()
+            deleteFilm(el.parentElement.textContent.slice(3, el.parentElement.textContent.length).trim());
+            deleteFilms();
+            addFilms();
+            addEventOnFilms();
         })
     });
 }
