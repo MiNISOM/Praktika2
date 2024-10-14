@@ -1,28 +1,13 @@
-/* Консольное приложение
-
-1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
-'Сколько фильмов вы уже посмотрели?'
-
-2) Создать объект personalMovieDB и в него поместить такие свойства:
-    - count - сюда передается ответ на первый вопрос
-    - movies - в это свойство поместить пустой объект
-    - actors - тоже поместить пустой объект
-    - genres - сюда поместить пустой массив
-    - privat - в это свойство поместить boolean(логическое) значение false
-
-3) Задайте пользователю по два раза вопросы:
-    - 'Один из последних просмотренных фильмов?'
-    - 'На сколько оцените его?'
-Ответы стоит поместить в отдельные переменные
-Записать ответы в объект movies в формате: 
-    movies: {
-        'logan': '8.1'
+function getRightAnswer(question) {
+    let ask = prompt(question)
+    while (ask == '' && ask.length > 50) {
+        ask = prompt(question)
     }
 
-Проверить, чтобы все работало без ошибок в консоли 
+    return ask
+}
 
-*/
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+const numberOfFilms = +getRightAnswer('Сколько фильмов вы уже посмотрели?')
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -32,18 +17,47 @@ const personalMovieDB = {
     privat: false,
 }
 
-
 if(numberOfFilms > 0) {
-    let checkFilmCount = numberOfFilms === 1 ? 1 : 2
+    for (let i = 0; i < (numberOfFilms === 1 ? 1 : 2); i++) {
+        let lastFilm = getRightAnswer('Один из последних просмотренных фильмов?')
+        let score = prompt('На сколько оцените его?')
 
-    for (let i = 0; i < checkFilmCount; i++) {
-        let lastFilm = prompt('Один из последних просмотренных фильмов?', '');
-        let score = prompt('На сколько оцените его?', 0);
-
-        personalMovieDB.movies[lastFilm] = score;
+        personalMovieDB.movies[`${lastFilm}`] = score
     }
 
     console.log(personalMovieDB.movies);
 } else  {
     console.log('Нужно смотреть фильмы!!');
 }
+
+if(personalMovieDB.count < 10)
+    console.log('Просмотрено довольно мало фильмов');
+else if(personalMovieDB.count  > 10 && personalMovieDB.count <= 30)
+    console.log('Вы классический зритель');
+else if(personalMovieDB.count > 30)
+    console.log('Вы киноман');
+else 
+    console.log('Произошла ошибка');
+
+/*
+First cicle
+let i = 0
+while (i < (numberOfFilms === 1 ? 1 : 2)) {
+    let lastFilm = getRightAnswer('Один из последних просмотренных фильмов?')
+    let score = prompt('На сколько оцените его?')
+
+    personalMovieDB.movies[`${lastFilm}`] = score 
+    
+    i++
+}
+
+Second cicle
+let i = 0
+do {
+    let lastFilm = getRightAnswer('Один из последних просмотренных фильмов?')
+    let score = prompt('На сколько оцените его?')
+
+    personalMovieDB.movies[`${lastFilm}`] = score
+
+    i++
+} while(i < (numberOfFilms === 1 ? 1 : 2)) */
