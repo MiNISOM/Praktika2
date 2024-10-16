@@ -20,6 +20,7 @@ P.S. Здесь есть несколько вариантов решения з
 
 
 function addFilms() {
+    movieList.innerHTML = '';
     movieDB.movies = movieDB.movies.sort()
 
     for (let i = 0; i < movieDB.movies.length; i++) {
@@ -31,22 +32,6 @@ function addFilms() {
         li.innerHTML = `${i+1}) ${movieDB.movies[i].toUpperCase()}
                         <div class="delete"></div>`;
         movieList.appendChild(li);
-    }
-}
-
-function deleteFilms() {
-    let ul = document.querySelector('#movieList')
-    ul.innerHTML = ''
-}
-
-function deleteFilm(film) {
-    for (let i = 0; i < movieDB.movies.length; i++) {
-        const element = movieDB.movies[i];
-
-        if(element.toUpperCase() == film) {
-            movieDB.movies.splice(i, 1);
-            return
-        }
     }
 }
 
@@ -75,11 +60,7 @@ bg.style.backgroundImage = 'url("img/bg.jpg")';
 
 addFilms();
 
-form.submit = (event) => {
-    // Something
-}
-
-button.addEventListener('click', (event) => {
+form.addEventListener('submit', event => {
     event.preventDefault();
 
     let input = document.querySelector('.adding__input');
@@ -93,22 +74,20 @@ button.addEventListener('click', (event) => {
     if(checkbox.checked) 
         console.log('Добавляем в издранное...');
 
-    deleteFilms();
     movieDB.movies.push(str);
     addFilms();
 
     addEventOnFilms();
 
     form.reset();
-    form.submit(event);
 })
 
 function addEventOnFilms() {
     let deleteButs = document.querySelectorAll('.promo__interactive-list .delete');
-    deleteButs.forEach(el => {
+    deleteButs.forEach( (el, index) => {
         el.addEventListener('click', () => {
-            deleteFilm(el.parentElement.textContent.slice(3, el.parentElement.textContent.length).trim());
-            deleteFilms();
+            el.parentElement.remove();
+            movieDB.movies.splice(index, 1);
             addFilms();
             addEventOnFilms();
         })
