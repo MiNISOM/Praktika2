@@ -21,18 +21,18 @@ P.S. Здесь есть несколько вариантов решения з
 
 function addFilms() {
     movieList.innerHTML = '';
-    movieDB.movies = movieDB.movies.sort()
+    movieDB.movies = movieDB.movies.sort();
 
-    for (let i = 0; i < movieDB.movies.length; i++) {
+    movieDB.movies.forEach( (el, index) => {
         // Я знаю что здесь можно было сделать чекрез шаблонную строку, 
         // но потом не работает метод для удаления этих элементов
 
         const li = document.createElement('li');
         li.classList.add('promo__interactive-item');
-        li.innerHTML = `${i+1}) ${movieDB.movies[i].toUpperCase()}
+        li.innerHTML = `${index+1}) ${el.toUpperCase()}
                         <div class="delete"></div>`;
         movieList.appendChild(li);
-    }
+    });
 }
 
 const movieDB = {
