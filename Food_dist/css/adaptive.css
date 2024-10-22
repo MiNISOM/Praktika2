@@ -216,7 +216,7 @@ section.menu .container .menu__item {
     }
 
     .offer__slider {
-        margin-top: 30px;
+        margin-top: 30px !important;
         justify-content: center;
         align-items: center;
     }
