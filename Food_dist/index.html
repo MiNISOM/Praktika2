@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food</title>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptive.css">
 </head>
 <body>
-    <div w3-include-html="header.html"></div>
-    <div w3-include-html="side-panel.html"></div>
-    <div w3-include-html="preview.html"></div>
+    <my-header></my-header>
+    <my-side-panel></my-side-panel>
+    <my-preview></my-preview>
 
     <div class="divider"></div>
 
-    <div w3-include-html="offer.html"></div>
+    <my-offer></my-offer>
 
     <div class="divider"></div>
 
-    <div w3-include-html="calculating.html"></div>
+    <my-calculation></my-calculation>
 
     <div class="divider"></div>
 
-    <div w3-include-html="menu.html"></div>
-    <div w3-include-html="order.html"></div>
+    <my-menu></my-menu>
+    <my-order></my-order>
 
     <div class="divider"></div>
 
-    <div w3-include-html="promotion.html"></div>
-    <div w3-include-html="footer.html"></div>
+    <my-promotion></my-promotion>
+    
+    <my-footer></my-footer>
 
     <div class="modal">
         <div class="modal__dialog">
@@ -43,7 +45,15 @@
             </div>
         </div>
     </div>
-
-    <script src="js/script.js"></script>
+    
+    <script type="module" src="js/header.js"></script>
+    <script type="module" src="js/side-panel.js"></script>
+    <script type="module" src="js/preview.js"></script>
+    <script type="module" src="js/offer.js"></script>
+    <script type="module" src="js/calculation.js"></script>
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="js/order.js"></script>
+    <script type="module" src="js/promotion.js"></script>
+    <script type="module" src="js/footer.js"></script>
 </body>
 </html>
