@@ -30,23 +30,24 @@ const add = document.querySelector('.promo__adv'),
     bg = document.querySelector('.promo__bg'),
     movieList = document.getElementById('movieList');
 
-add.style.display = 'none'
+add.style.display = 'none';
 
 //2
-genre.innerHTML = 'ДРАМА'
+genre.innerHTML = 'ДРАМА';
 
 //3
-bg.style.backgroundImage = 'url("img/bg.jpg")'
+bg.style.backgroundImage = 'url("img/bg.jpg")';
 
 //4, 5
 
-movieDB.movies = movieDB.movies.sort()
+movieDB.movies = movieDB.movies.sort();
+movieList.innerHTML = '';
 
-for (let i = 0; i < movieDB.movies.length; i++) {
+movieDB.movies.forEach( (el, i) => {
     movieList.innerHTML += `
         <li class="promo__interactive-item">
-            ${i+1}) ${movieDB.movies[i].toUpperCase()}
+            ${i+1}) ${el.toUpperCase()}
             <div class="delete"></div>
         </li>
     `;
-}
+});
