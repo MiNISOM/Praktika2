@@ -1,4 +1,4 @@
-class MyComponent extends HTMLElement {
+class SidePanel extends HTMLElement {
     constructor() {
         super();
 
@@ -25,4 +25,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('for-side-panel', MyComponent);
+customElements.define('for-side-panel', SidePanel);

@@ -1,4 +1,4 @@
-class MyComponent extends HTMLElement {
+class Order extends HTMLElement {
     constructor() {
         super();
 
@@ -26,4 +26,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('for-order', MyComponent);
+customElements.define('for-order', Order);
