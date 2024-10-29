@@ -1,4 +1,4 @@
-class MyComponent extends HTMLElement {
+class Header extends HTMLElement {
     constructor() {
         super();
 
@@ -29,4 +29,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-header', MyComponent);
+customElements.define('for-header', Header);

@@ -1,4 +1,4 @@
-class MyComponent extends HTMLElement {
+class Preview extends HTMLElement {
     constructor() {
         super();
 
@@ -56,4 +56,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-preview', MyComponent);
+customElements.define('for-preview', Preview);

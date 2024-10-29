@@ -68,4 +68,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-offer', MyComponent);
+customElements.define('for-offer', MyComponent);

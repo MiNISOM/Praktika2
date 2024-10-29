@@ -26,4 +26,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-order', MyComponent);
+customElements.define('for-order', MyComponent);

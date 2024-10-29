@@ -1,4 +1,4 @@
-class MyComponent extends HTMLElement {
+class Calculation extends HTMLElement {
     constructor() {
         super();
 
@@ -60,4 +60,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-calculation', MyComponent);
+customElements.define('for-calculation', Calculation);

@@ -50,4 +50,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-promotion', MyComponent);
+customElements.define('for-menu', MyComponent);

@@ -32,4 +32,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-footer', MyComponent);
+customElements.define('for-footer', MyComponent);

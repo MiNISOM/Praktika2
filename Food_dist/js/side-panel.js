@@ -25,4 +25,4 @@ class MyComponent extends HTMLElement {
     }
 }
 
-customElements.define('my-side-panel', MyComponent);
+customElements.define('for-side-panel', MyComponent);
