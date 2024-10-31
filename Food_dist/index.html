@@ -9,28 +9,27 @@
     <link rel="stylesheet" href="css/adaptive.css">
 </head>
 <body>
-    <for-header></for-header>
-    <for-side-panel></for-side-panel>
-    <for-preview></for-preview>
+    <div data-html-path="html-content/header.html"></div>
+    <div data-html-path="html-content/side-panel.html"></div>
+    <div data-html-path="html-content/preview.html"></div>
 
     <div class="divider"></div>
 
-    <for-offer></for-offer>
+    <div data-html-path="html-content/offer.html"></div>
 
     <div class="divider"></div>
 
-    <for-calculation></for-calculation>
+    <div data-html-path="html-content/calculation.html"></div>
 
     <div class="divider"></div>
 
-    <for-menu></for-menu>
-    <for-order></for-order>
+    <div data-html-path="html-content/menu.html"></div>
+    <div data-html-path="html-content/order.html"></div>
 
     <div class="divider"></div>
 
-    <for-promotion></for-promotion>
-    
-    <for-footer></for-footer>
+    <div data-html-path="html-content/promotion.html"></div>
+    <div data-html-path="html-content/footer.html"></div>
 
     <div class="modal">
         <div class="modal__dialog">
@@ -46,14 +45,7 @@
         </div>
     </div>
     
-    <script type="module" src="js/header.js"></script>
-    <script type="module" src="js/side-panel.js"></script>
-    <script type="module" src="js/preview.js"></script>
-    <script type="module" src="js/offer.js"></script>
-    <script type="module" src="js/calculation.js"></script>
-    <script type="module" src="js/menu.js"></script>
-    <script type="module" src="js/order.js"></script>
-    <script type="module" src="js/promotion.js"></script>
-    <script type="module" src="js/footer.js"></script>
+    <script src="js/addHTMLContent.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

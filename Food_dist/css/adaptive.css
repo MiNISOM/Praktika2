@@ -18,6 +18,14 @@ section {
     height: 100%;
 }
 
+.tabcontainer .tabcontent {
+    display: none;
+}
+
+.tabcontainer .tabcontent.tabcontent_active {
+    display: block;
+}
+
 /* 
 --- Calcuilation 
 */
