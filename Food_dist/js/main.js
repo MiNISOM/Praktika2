@@ -4,8 +4,8 @@ setTimeout(() => {
 
 function main() {
     addTabheaderFunctionality();
+    changeCalcBlocks();
     addEventsOnInputsAndButs();
-    changeCalcBlocks()
 }
 
 function addTabheaderFunctionality() {
