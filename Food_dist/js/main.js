@@ -3,6 +3,12 @@ setTimeout(() => {
 }, 1000);
 
 function main() {
+    addTabheaderFunctionality();
+    addEventsOnInputsAndButs();
+    changeCalcBlocks()
+}
+
+function addTabheaderFunctionality() {
     const tabItems = document.querySelectorAll('.preview .tabheader__item');
     const tabContents = document.querySelectorAll('.preview .tabcontent');
 
@@ -19,9 +25,6 @@ function main() {
             document.querySelector(`.preview .tabcontent:nth-child(${index+1})`).classList.add('tabcontent_active');
         })
     });
-
-    addEventsOnInputsAndButs();
-    changeCalcBlocks()
 }
 
 function changeCalcBlocks() {
