@@ -1,5 +1,5 @@
 setTimeout(() => {
-    main()
+    main();
 }, 1000);
 
 function main() {
@@ -28,20 +28,24 @@ function addTabheaderFunctionality() {
 }
 
 function changeCalcBlocks() {
-    const genders = document.querySelectorAll('.calculating__choose#gender .calculating__choose-item');
-    addClickEvent(genders, 'calculating__choose-item_active');
+    let elements = [ 
+        document.querySelectorAll('.calculating__choose#gender .calculating__choose-item'), 
+        
+        document.querySelectorAll('.calculating__choose_big .calculating__choose-item') 
+    ];
 
-    const activities = document.querySelectorAll('.calculating__choose_big .calculating__choose-item');
-    addClickEvent(activities, 'calculating__choose-item_active');
+    elements.forEach(el => {
+        addClickEvent(el, 'calculating__choose-item_active');
+    });
 }
 
-function addClickEvent(arr, cl) {
+function addClickEvent(arr, className) {
     arr.forEach(el => {
         el.addEventListener('click', () => {
             arr.forEach(e => {
-                e.classList.remove(cl);
+                e.classList.remove(className);
             });
-            el.classList.add(cl);
+            el.classList.add(className);
         });
     });
 }
@@ -51,35 +55,39 @@ function addEventsOnInputsAndButs() {
     
     calcItems.forEach(el => {
         el.addEventListener('blur', () => {
-            printCalories(calcItems);
+            printCalories();
         });
     });
 
     const items = document.querySelectorAll('.calculating__choose#gender .calculating__choose-item, .calculating__choose_big .calculating__choose-item');
     items.forEach(el => {
         el.addEventListener('click', () => {
-            printCalories(calcItems);
+            printCalories();
         });
     });
 }
 
-function printCalories(calcItems) {
-    let flag = true;
+function printCalories() {
+    const calcItems = document.querySelectorAll('input.calculating__choose-item');
+
+    let isValidValue = true;
     calcItems.forEach(e => {
-        if(isNaN(e.value) || e.value == '') {
-            flag = false;
+        if(isNaN(e.value) || e.value === '') {
+            isValidValue = false;
             return;
         }
     });
 
-    if(flag) {
+    const calcRes = document.querySelector('.calculating__result span');
+    if(isValidValue) {
         const bmr = calcCalories();
-        const calcRes = document.querySelector('.calculating__result span');
         calcRes.innerHTML = Math.round(bmr);
+    } else {
+        calcRes.innerHTML = '0';
     }
 }
 
-function calcCalories() {
+function calcCalories() { // Calculate Calories
     const calcItems = document.querySelectorAll('input.calculating__choose-item');
     const height = calcItems[0].value;
     const weight = calcItems[1].value;
