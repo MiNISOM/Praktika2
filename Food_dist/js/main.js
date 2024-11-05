@@ -32,7 +32,7 @@ function changeCalcBlocks() {
         document.querySelectorAll('.calculating__choose#gender .calculating__choose-item'), 
         
         document.querySelectorAll('.calculating__choose_big .calculating__choose-item') 
-    ];
+    ]
 
     elements.forEach(el => {
         addClickEvent(el, 'calculating__choose-item_active');
