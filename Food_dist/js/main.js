@@ -54,17 +54,19 @@ function addEventsOnInputsAndButs() {
     const calcItems = document.querySelectorAll('input.calculating__choose-item');
     
     calcItems.forEach(el => {
-        el.addEventListener('blur', () => {
+        el.addEventListener('input', () => {
             printCalories();
         });
     });
+    console.log('k');
+    
 
-    const items = document.querySelectorAll('.calculating__choose#gender .calculating__choose-item, .calculating__choose_big .calculating__choose-item');
-    items.forEach(el => {
-        el.addEventListener('click', () => {
-            printCalories();
-        });
-    });
+    // const items = document.querySelectorAll('.calculating__choose#gender .calculating__choose-item, .calculating__choose_big .calculating__choose-item');
+    // items.forEach(el => {
+    //     el.addEventListener('click', () => {
+    //         printCalories();
+    //     });
+    // });
 }
 
 function printCalories() {
