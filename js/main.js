@@ -4,8 +4,36 @@ setTimeout(() => {
 
 function main() {
     addTabheaderFunctionality();
-    changeCalcBlocks();
-    addEventsOnInputsAndButs();
+    addCalculateEvents();
+}
+
+function addCalculateEvents() {
+    const elements = [ 
+        document.querySelectorAll('.calculating__choose#gender .calculating__choose-item'), 
+        
+        document.querySelectorAll('.calculating__choose_big .calculating__choose-item') 
+    ]
+
+    elements.forEach(el => {
+        addClassOnClickEvent(el, 'calculating__choose-item_active');
+    });
+
+
+    const inputs = document.querySelectorAll('input.calculating__choose-item');
+    
+    inputs.forEach(el => {
+        el.addEventListener('input', () => {
+            printCalories();
+        });
+    });
+
+    elements.forEach(el => {
+        el.forEach(e => {
+            e.addEventListener('click', () => {
+                printCalories();
+            });
+        });
+    });
 }
 
 function addTabheaderFunctionality() {
@@ -27,19 +55,7 @@ function addTabheaderFunctionality() {
     });
 }
 
-function changeCalcBlocks() {
-    let elements = [ 
-        document.querySelectorAll('.calculating__choose#gender .calculating__choose-item'), 
-        
-        document.querySelectorAll('.calculating__choose_big .calculating__choose-item') 
-    ]
-
-    elements.forEach(el => {
-        addClickEvent(el, 'calculating__choose-item_active');
-    });
-}
-
-function addClickEvent(arr, className) {
+function addClassOnClickEvent(arr, className) {
     arr.forEach(el => {
         el.addEventListener('click', () => {
             arr.forEach(e => {
@@ -48,25 +64,6 @@ function addClickEvent(arr, className) {
             el.classList.add(className);
         });
     });
-}
-
-function addEventsOnInputsAndButs() {
-    const calcItems = document.querySelectorAll('input.calculating__choose-item');
-    
-    calcItems.forEach(el => {
-        el.addEventListener('input', () => {
-            printCalories();
-        });
-    });
-    console.log('k');
-    
-
-    // const items = document.querySelectorAll('.calculating__choose#gender .calculating__choose-item, .calculating__choose_big .calculating__choose-item');
-    // items.forEach(el => {
-    //     el.addEventListener('click', () => {
-    //         printCalories();
-    //     });
-    // });
 }
 
 function printCalories() {
