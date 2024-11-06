@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+</head>
+<body>
+    <div data-html-path="html-content/header.html"></div>
+    <div data-html-path="html-content/side-panel.html"></div>
+    <div data-html-path="html-content/preview.html"></div>
+
+    <div class="divider"></div>
+
+    <div data-html-path="html-content/offer.html"></div>
+
+    <div class="divider"></div>
+
+    <div data-html-path="html-content/calculation.html"></div>
+
+    <div class="divider"></div>
+
+    <div data-html-path="html-content/menu.html"></div>
+    <div data-html-path="html-content/order.html"></div>
+
+    <div class="divider"></div>
+
+    <div data-html-path="html-content/promotion.html"></div>
+    <div data-html-path="html-content/footer.html"></div>
+
+    <div class="modal">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form action="#">
+                    <div class="modal__close">&times;</div>
+                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
+                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
+                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
+                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/addHTMLContent.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
