@@ -24,26 +24,28 @@
     <div class="divider"></div>
 
     <div data-html-path="html-content/menu.html"></div>
-    <div data-html-path="html-content/order.html"></div>
 
     <div class="divider"></div>
 
     <div data-html-path="html-content/promotion.html"></div>
     <div data-html-path="html-content/footer.html"></div>
 
-    <div class="modal">
+    <section class="modal">
         <div class="modal__dialog">
             <div class="modal__content">
-                <form action="#">
-                    <div class="modal__close">&times;</div>
-                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
-                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
-                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
-                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
-                </form>
+                <div class="modal__close">&times;</div>
+                <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
+                <div class="modal__title">Выберите способ связи:</div>
+                <br>
+                <div class="modal__socials">
+                    <a href="https://www.instagram.com/___miniso___/" class="modal__insta"></a>
+                    <a href="https://ru-ru.facebook.com/" class="modal__facebook"></a>
+                    <a href="https://web.telegram.org/k/" class="modal__telegram"></a>
+                </div>
+                <br>
             </div>
         </div>
-    </div>
+    </section>
     
     <script src="js/addHTMLContent.js"></script>
     <script type="module" src="js/main.js"></script>
